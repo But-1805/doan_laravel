@@ -45,4 +45,15 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+        // Một User có thể có nhiều đơn hàng
+        public function orders()
+        {
+            return $this->hasMany(Order::class);
+        }
+    
+        // Một User có thể có nhiều sản phẩm yêu thích
+        public function favorites()
+        {
+            return $this->hasMany(Favorite::class);
+        }
 }
